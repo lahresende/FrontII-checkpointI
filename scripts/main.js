@@ -28,7 +28,7 @@ function checkInputs() {
   const textValue = text.value.trim();
   let success = true;
 
-  if (titleValue === "" || null) {
+  if (titleValue === "" || titleValue === null) {
     //mostrar erro
     //adicionar classe error
     errorValidation(title, "Preencha esse campo");
@@ -36,14 +36,14 @@ function checkInputs() {
   } else if (titleValue.length < 4) {
     //mostrar erro
     //adicionar classe error
-    errorValidation(title, "Campo deve conter mais de 10 caracteres");
+    errorValidation(title, "Campo deve conter mais de 4 caracteres");
     success = false;
   } else {
     //adicionar classe sucesso
     successValidation(title);
   }
 
-  if (imageValue === "" || null) {
+  if (imageValue === "" || imageValue === null) {
     //mostrar erro
     //adicionar classe error
     errorValidation(image, "Preencha esse campo");
@@ -52,13 +52,13 @@ function checkInputs() {
     //adicionar classe sucesso
     successValidation(image);
   }
-  if (textValue === "" || null) {
+  if (textValue === "" || textValue === null) {
     //mostrar erro
     //adicionar classe error
     errorValidation(text, "Preencha esse campo");
     success = false;
-  } else if (text.length < 4) {
-    errorValidation(text, "Esse campo precisa ter mais de 15 caracteres");
+  } else if (textValue.length < 4) {
+    errorValidation(text, "Esse campo precisa ter mais de 4 caracteres");
     success = false;
   } else {
     //adicionar classe sucesso
@@ -118,7 +118,7 @@ window.addEventListener(
   "resize",
   function (event) {
     let menu = document.getElementById("menu");
-    if (window.outerWidth <= 600) menu.style.display = "none";
+    if (window.innerWidth <= 768) menu.style.display = "none";
     else menu.style.display = "flex";
   },
   true
